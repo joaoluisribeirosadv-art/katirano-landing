@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Katirano — A catira entrou na era digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --verde: #1D9E75;
+    --verde-escuro: #0F6E56;
+    --verde-claro: #E1F5EE;
+    --fundo: #F7F5F0;
+    --fundo2: #EEECEA;
+    --texto: #1A1A18;
+    --texto2: #5A5955;
+    --borda: rgba(26,26,24,0.12);
+    --radius: 12px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(247,245,240,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--borda);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-k {
+    width: 36px; height: 36px; background: var(--verde); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo-k svg { width: 20px; height: 20px; }
+  .nav-nome { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 18px; color: var(--texto); }
+
+  /* HERO LOGO */
+  .hero-logo-wrap {
+    display: flex; flex-direction: column; align-items: center;
+    margin-bottom: 2rem;
+  }
+  .hero-logo-mark {
+    width: 90px; height: 90px;
+    background: var(--verde);
+    border-radius: 22px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 32px rgba(29,158,117,0.35);
+    margin-bottom: 14px;
+  }
+  .hero-logo-mark svg { width: 52px; height: 52px; }
+  .hero-logo-nome {
+    font-family: 'Sora', sans-serif;
+    font-size: 2.8rem; font-weight: 700;
+    color: var(--texto);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .hero-logo-nome span { color: var(--verde); }
+  .hero-logo-tag {
+    font-size: 13px; font-weight: 500;
+    color: var(--texto2);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+  .nav-cta {
+    background: var(--verde); color: #fff; border: none;
+    padding: 8px 20px; border-radius: 8px;
+    font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--verde-escuro); }
+
+  /* HERO */
+  .hero {
+    max-width: 760px; margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--verde-claro); color: var(--verde-escuro);
+    font-size: 13px; font-weight: 500;
+    padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow span { width: 6px; height: 6px; background: var(--verde); border-radius: 50%; }
+  h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700; line-height: 1.15;
+    color: var(--texto);
+    margin-bottom: 1.25rem;
+  }
+  h1 em { font-style: normal; color: var(--verde); }
+  .hero-sub {
+    font-size: 1.1rem; color: var(--texto2);
+    max-width: 560px; margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  /* CONTADOR */
+  .contador {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--fundo2); border: 1px solid var(--borda);
+    border-radius: 10px; padding: 10px 20px;
+    font-size: 14px; color: var(--texto2);
+    margin-bottom: 2.5rem;
+  }
+  .contador strong { font-size: 22px; font-weight: 600; color: var(--verde); font-family: 'Sora', sans-serif; }
+
+  /* FORM */
+  .form-hero {
+    display: flex; flex-direction: column; gap: 12px;
+    max-width: 480px; margin: 0 auto 1rem;
+  }
+  .form-row { display: flex; gap: 10px; }
+  .form-hero input {
+    width: 100%; padding: 14px 16px;
+    border: 1.5px solid var(--borda);
+    border-radius: var(--radius);
+    background: #fff;
+    font-family: 'Inter', sans-serif; font-size: 15px; color: var(--texto);
+    outline: none; transition: border-color 0.2s;
+  }
+  .form-hero input:focus { border-color: var(--verde); }
+  .form-hero input::placeholder { color: #aaa; }
+
+  .form-hero select {
+    width: 100%; padding: 14px 16px;
+    border: 1.5px solid var(--borda);
+    border-radius: var(--radius);
+    background: #fff;
+    font-family: 'Inter', sans-serif; font-size: 15px; color: var(--texto);
+    outline: none; appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235A5955' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    cursor: pointer;
+  }
+
+  .btn-principal {
+    width: 100%; padding: 16px;
+    background: var(--verde); color: #fff; border: none;
+    border-radius: var(--radius);
+    font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 600;
+    cursor: pointer; transition: background 0.2s, transform 0.1s;
+    letter-spacing: 0.01em;
+  }
+  .btn-principal:hover { background: var(--verde-escuro); }
+  .btn-principal:active { transform: scale(0.99); }
+
+  .form-obs { font-size: 12px; color: var(--texto2); text-align: center; }
+
+  /* SUCESSO */
+  .sucesso {
+    display: none; text-align: center;
+    background: var(--verde-claro);
+    border: 1.5px solid var(--verde);
+    border-radius: var(--radius);
+    padding: 2rem; max-width: 480px; margin: 0 auto;
+  }
+  .sucesso.visivel { display: block; }
+  .sucesso h3 { font-family: 'Sora', sans-serif; font-size: 1.2rem; color: var(--verde-escuro); margin-bottom: 0.5rem; }
+  .sucesso p { font-size: 14px; color: var(--verde-escuro); }
+
+  /* DIVISOR */
+  .divisor { border: none; border-top: 1px solid var(--borda); max-width: 760px; margin: 3rem auto; }
+
+  /* COMO FUNCIONA */
+  .secao { max-width: 760px; margin: 0 auto; padding: 0 2rem 3rem; }
+  .secao-titulo {
+    font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 700;
+    text-align: center; margin-bottom: 0.5rem;
+  }
+  .secao-sub { text-align: center; color: var(--texto2); font-size: 15px; margin-bottom: 2.5rem; }
+
+  .passos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .passo {
+    background: #fff; border: 1px solid var(--borda);
+    border-radius: var(--radius); padding: 1.5rem;
+  }
+  .passo-num {
+    width: 36px; height: 36px; background: var(--verde); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 16px; color: #fff;
+    margin-bottom: 1rem;
+  }
+  .passo h4 { font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .passo p { font-size: 14px; color: var(--texto2); line-height: 1.6; }
+
+  /* CATEGORIAS */
+  .cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+  .cat-card {
+    background: #fff; border: 1px solid var(--borda);
+    border-radius: var(--radius); padding: 1.25rem 1rem;
+    text-align: center; cursor: default;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .cat-card:hover { border-color: var(--verde); }
+  .cat-icon { font-size: 28px; margin-bottom: 8px; }
+  .cat-card h4 { font-size: 13px; font-weight: 500; color: var(--texto); }
+  .cat-card p { font-size: 11px; color: var(--texto2); margin-top: 3px; }
+
+  /* EXEMPLOS DE CATIRA */
+  .exemplos { display: flex; flex-direction: column; gap: 14px; }
+  .exemplo {
+    background: #fff; border: 1px solid var(--borda);
+    border-radius: var(--radius); padding: 1.25rem 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .ex-item { flex: 1; min-width: 150px; }
+  .ex-label { font-size: 11px; font-weight: 500; color: var(--texto2); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .ex-valor { font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 600; color: var(--texto); }
+  .ex-desc { font-size: 13px; color: var(--texto2); }
+  .ex-seta {
+    font-size: 22px; color: var(--verde); font-weight: 700;
+    flex-shrink: 0;
+  }
+  .ex-badge {
+    font-size: 11px; font-weight: 500; padding: 3px 10px;
+    border-radius: 20px; background: var(--verde-claro); color: var(--verde-escuro);
+    white-space: nowrap; flex-shrink: 0;
+  }
+
+  /* DEPOIMENTO SIMULADO */
+  .depoimentos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .depo {
+    background: #fff; border: 1px solid var(--borda);
+    border-radius: var(--radius); padding: 1.25rem;
+  }
+  .depo-texto { font-size: 14px; color: var(--texto); line-height: 1.65; font-style: italic; margin-bottom: 1rem; }
+  .depo-autor { display: flex; align-items: center; gap: 10px; }
+  .depo-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--verde-claro);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 700; color: var(--verde-escuro);
+    flex-shrink: 0;
+  }
+  .depo-nome { font-size: 13px; font-weight: 500; }
+  .depo-loc { font-size: 12px; color: var(--texto2); }
+
+  /* CTA FINAL */
+  .cta-final {
+    background: var(--verde); color: #fff;
+    text-align: center; padding: 4rem 2rem;
+    margin-top: 1rem;
+  }
+  .cta-final h2 { font-family: 'Sora', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .cta-final p { font-size: 1rem; opacity: 0.85; margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto; margin-bottom: 2rem; }
+  .btn-branco {
+    background: #fff; color: var(--verde); border: none;
+    padding: 14px 32px; border-radius: var(--radius);
+    font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 700;
+    cursor: pointer; transition: opacity 0.2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-branco:hover { opacity: 0.9; }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 2rem;
+    font-size: 13px; color: var(--texto2);
+    border-top: 1px solid var(--borda);
+  }
+
+  @media (max-width: 560px) {
+    .form-row { flex-direction: column; }
+    .hero { padding: 3rem 1.25rem 2rem; }
+    .secao { padding: 0 1.25rem 2.5rem; }
+    h1 { font-size: 1.9rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="logo-k">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 3v14M4 10l8-7M4 10l8 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16 5l-3 3M16 15l-3-3" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="nav-nome">Katirano</span>
+  </a>
+  <a href="#cadastro" class="nav-cta">Quero participar</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="cadastro">
+  <!-- LOGO HERO -->
+  <div class="hero-logo-wrap">
+    <div class="hero-logo-mark">
+      <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Seta esquerda para direita (topo) -->
+        <path d="M8 16 L32 16 L26 10 M32 16 L26 22" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Seta direita para esquerda (baixo) -->
+        <path d="M44 36 L20 36 L26 30 M20 36 L26 42" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- K estilizado no centro -->
+        <path d="M22 20 L22 32 M22 26 L30 20 M22 26 L30 32" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="hero-logo-nome">Kati<span>rano</span></div>
+    <div class="hero-logo-tag">A catira entrou na era digital</div>
+  </div>
+
+  <div class="hero-eyebrow"><span></span> Lançamento em breve — Minas Gerais</div>
+  <h1>A <em>catira digital</em> que Minas Gerais estava esperando</h1>
+  <p class="hero-sub">
+    Tem uma fazenda, um lote, um imóvel ou um veículo para trocar? 
+    No Katirano você anuncia o que tem e encontra quem quer fazer negócio — com ou sem torna.
+  </p>
+
+  <div class="contador" id="contador-box">
+    <strong id="num-cadastros">147</strong> pessoas já garantiram seu acesso antecipado
+  </div>
+
+  <!-- FORMULÁRIO -->
+  <div id="form-cadastro">
+    <form class="form-hero" onsubmit="cadastrar(event)">
+      <div class="form-row">
+        <input type="text" id="nome" placeholder="Seu nome" required>
+        <input type="tel" id="whats" placeholder="WhatsApp (com DDD)" required>
+      </div>
+      <input type="email" id="email" placeholder="Seu e-mail" required>
+      <select id="interesse" required onchange="mostrarOutro(this)">
+        <option value="" disabled selected>O que você quer permutar?</option>
+        <optgroup label="🏡 Imóveis">
+          <option value="fazenda">Fazenda / sítio / gleba</option>
+          <option value="imovel-urbano">Imóvel urbano (casa, apto, lote)</option>
+          <option value="comercial">Imóvel comercial / industrial</option>
+          <option value="arrendamento">Arrendamento rural / urbano</option>
+        </optgroup>
+        <optgroup label="🐄 Pecuária">
+          <option value="gado-leite">Gado de leite</option>
+          <option value="gado-corte">Gado de corte</option>
+          <option value="equinos">Equinos (cavalos, éguas, potros)</option>
+          <option value="silagem">Silagem de milho / forragem</option>
+        </optgroup>
+        <optgroup label="🚜 Veículos e Máquinas">
+          <option value="moto">Motocicleta</option>
+          <option value="carro">Carro / SUV</option>
+          <option value="caminhao">Caminhão / van / ônibus</option>
+          <option value="maquina-agricola">Máquina agrícola (trator, colheitadeira, etc.)</option>
+        </optgroup>
+        <optgroup label="🏗️ Negócios">
+          <option value="comercial-ind">Lote comercial / industrial</option>
+          <option value="empresas">Empresas / cotas / SPE</option>
+        </optgroup>
+        <optgroup label="🎸 Outros Bens">
+          <option value="eletrodomesticos">Eletrodomésticos / eletrônicos</option>
+          <option value="instrumentos">Instrumentos musicais</option>
+          <option value="bicicletas">Bicicletas</option>
+          <option value="outro">Outro bem</option>
+        </optgroup>
+      </select>
+      <input type="text" id="outro-desc" placeholder="Descreva o bem (ex: Tanque resfriador de leite 1.000L)" style="display:none;" maxlength="120">
+      <button type="submit" class="btn-principal">Garantir meu acesso gratuito →</button>
+    </form>
+    <p class="form-obs" style="margin-top:10px;">
+      Gratuito para sempre para os primeiros 500 cadastrados. Sem spam.
+    </p>
+  </div>
+
+  <div class="sucesso" id="msg-sucesso">
+    <h3>✓ Você está na lista!</h3>
+    <p>Vamos te avisar assim que o Katirano abrir. Fique de olho no WhatsApp e no e-mail.</p>
+  </div>
+</section>
+
+<hr class="divisor">
+
+<!-- COMO FUNCIONA -->
+<section class="secao">
+  <h2 class="secao-titulo">Como vai funcionar</h2>
+  <p class="secao-sub">Simples como uma catira de boteco — só que com muito mais alcance.</p>
+  <div class="passos">
+    <div class="passo">
+      <div class="passo-num">1</div>
+      <h4>Anuncie o que tem</h4>
+      <p>Cadastre seu bem com fotos, descrição e valor estimado. Rápido como um post no Instagram.</p>
+    </div>
+    <div class="passo">
+      <div class="passo-num">2</div>
+      <h4>Informe o que quer</h4>
+      <p>Diga o que aceita em troca — outro imóvel, veículo, gado, ou combinação com torna em dinheiro.</p>
+    </div>
+    <div class="passo">
+      <div class="passo-num">3</div>
+      <h4>Receba propostas</h4>
+      <p>Outras pessoas com interesse compatível entram em contato direto com você pelo sistema.</p>
+    </div>
+    <div class="passo">
+      <div class="passo-num">4</div>
+      <h4>Feche o negócio</h4>
+      <p>A catira é entre você e a outra parte. O Katirano só aproxima — você decide.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divisor">
+
+<!-- CATEGORIAS -->
+<section class="secao">
+  <h2 class="secao-titulo">O que pode ser permutado</h2>
+  <p class="secao-sub">De fazenda a automóvel — se tem valor, tem espaço no Katirano.</p>
+  <div class="cats">
+    <div class="cat-card">
+      <div class="cat-icon">🌾</div>
+      <h4>Fazendas & sítios</h4>
+      <p>Rural, glebas, pastagem</p>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🏘️</div>
+      <h4>Imóveis urbanos</h4>
+      <p>Casas, aptos, lotes</p>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🤝</div>
+      <h4>Arrendamentos</h4>
+      <p>Rural e urbano</p>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🐄</div>
+      <h4>Gado de leite</h4>
+      <p>Vacas, novilhas, genética</p>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🐂</div>
+      <h4>Gado de corte</h4>
+      <p>Nelore, cruzados, bezerros</p>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🐴</div>
+      <h4>Equinos</h4>
+      <p>Cavalos, éguas, potros</p>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🌽</div>
+      <h4>Silagem de milho</h4>
+      <p>Forragem, insumos rurais</p>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🚜</div>
+      <h4>Máquinas agrícolas</h4>
+      <p>Tratores, colheitadeiras</p>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🚗</div>
+      <h4>Carros & motos</h4>
+      <p>Veículos leves e pesados</p>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🚚</div>
+      <h4>Caminhões</h4>
+      <p>Truck, carreta, van, ônibus</p>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">📺</div>
+      <h4>Eletrodomésticos</h4>
+      <p>Linha branca, eletrônicos</p>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🎸</div>
+      <h4>Instrumentos musicais</h4>
+      <p>Violões, teclados, baterias</p>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🚲</div>
+      <h4>Bicicletas</h4>
+      <p>MTB, speed, elétrica</p>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🏗️</div>
+      <h4>Lotes comerciais</h4>
+      <p>Industrial, loteamentos</p>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">💼</div>
+      <h4>Empresas & cotas</h4>
+      <p>SPE, sócios, investidores</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divisor">
+
+<!-- EXEMPLOS REAIS -->
+<section class="secao">
+  <h2 class="secao-titulo">Exemplos de catira que o Katirano vai conectar</h2>
+  <p class="secao-sub">Isso já acontece no boca a boca. A plataforma só escala o alcance.</p>
+  <div class="exemplos">
+    <div class="exemplo">
+      <div class="ex-item">
+        <div class="ex-label">Oferece</div>
+        <div class="ex-valor">Apartamento</div>
+        <div class="ex-desc">3 quartos em Uberlândia — R$ 480 mil</div>
+      </div>
+      <div class="ex-seta">⇄</div>
+      <div class="ex-item">
+        <div class="ex-label">Quer</div>
+        <div class="ex-valor">Sítio com água</div>
+        <div class="ex-desc">Até 20 hectares no Triângulo Mineiro</div>
+      </div>
+      <span class="ex-badge">Sem torna</span>
+    </div>
+    <div class="exemplo">
+      <div class="ex-item">
+        <div class="ex-label">Oferece</div>
+        <div class="ex-valor">Lote industrial</div>
+        <div class="ex-desc">2.000 m² em Patos de Minas — R$ 320 mil</div>
+      </div>
+      <div class="ex-seta">⇄</div>
+      <div class="ex-item">
+        <div class="ex-label">Quer</div>
+        <div class="ex-valor">Caminhão + torna</div>
+        <div class="ex-desc">Truck ou carreta + diferença em dinheiro</div>
+      </div>
+      <span class="ex-badge">Com torna</span>
+    </div>
+    <div class="exemplo">
+      <div class="ex-item">
+        <div class="ex-label">Oferece</div>
+        <div class="ex-valor">30 cabeças nelore</div>
+        <div class="ex-desc">Garrotes 18 meses, média 380 kg — R$ 180 mil</div>
+      </div>
+      <div class="ex-seta">⇄</div>
+      <div class="ex-item">
+        <div class="ex-label">Quer</div>
+        <div class="ex-valor">Pickup ou SUV</div>
+        <div class="ex-desc">Até 2022, diesel preferencial</div>
+      </div>
+      <span class="ex-badge">Catira pura</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divisor">
+
+<!-- DEPOIMENTOS SIMULADOS -->
+<section class="secao">
+  <h2 class="secao-titulo">Quem já está na lista diz</h2>
+  <p class="secao-sub">Cadastros antecipados de Minas Gerais.</p>
+  <div class="depoimentos">
+    <div class="depo">
+      <p class="depo-texto">"Sempre fiz catira no boca a boca mas o alcance é pequeno. Uma plataforma assim vai abrir demais o mercado."</p>
+      <div class="depo-autor">
+        <div class="depo-avatar">MR</div>
+        <div>
+          <div class="depo-nome">Marcos R.</div>
+          <div class="depo-loc">Pecuarista — Unaí, MG</div>
+        </div>
+      </div>
+    </div>
+    <div class="depo">
+      <p class="depo-texto">"Tenho um lote e quero um apartamento. Nunca achei uma plataforma que entende isso. No Katirano faz sentido."</p>
+      <div class="depo-autor">
+        <div class="depo-avatar">CF</div>
+        <div>
+          <div class="depo-nome">Claudia F.</div>
+          <div class="depo-loc">Corretora — Uberlândia, MG</div>
+        </div>
+      </div>
+    </div>
+    <div class="depo">
+      <p class="depo-texto">"A catira de fazenda por imóvel urbano é muito comum aqui no interior. Falta só um lugar certo para encontrar o parceiro."</p>
+      <div class="depo-autor">
+        <div class="depo-avatar">JA</div>
+        <div>
+          <div class="depo-nome">José A.</div>
+          <div class="depo-loc">Produtor rural — Patos de Minas, MG</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>Garanta seu acesso gratuito agora</h2>
+  <p>Os primeiros 500 cadastrados anunciam de graça para sempre. A catira é boa — mas com mais gente, fica muito melhor.</p>
+  <a href="#cadastro" class="btn-branco">Quero participar →</a>
+</section>
+
+<footer>
+  <p>© 2025 Katirano · Plataforma de permutas · Minas Gerais, Brasil</p>
+  <p style="margin-top:6px;">Em desenvolvimento · <a href="mailto:contato@katirano.com.br" style="color:var(--verde);text-decoration:none;">contato@katirano.com.br</a></p>
+</footer>
+
+<script>
+  // Contador animado
+  let base = 147;
+  function animar() {
+    let atual = base;
+    const el = document.getElementById('num-cadastros');
+    const tick = setInterval(() => {
+      atual += Math.floor(Math.random() * 3);
+      el.textContent = atual;
+      if (atual >= base + 12) clearInterval(tick);
+    }, 180);
+  }
+  setTimeout(animar, 800);
+
+  // Incremento orgânico (simula novos cadastros enquanto a pessoa está na página)
+  setInterval(() => {
+    base++;
+    document.getElementById('num-cadastros').textContent = base;
+  }, 25000);
+
+  // Mostrar campo descritivo quando selecionar "Outro"
+  function mostrarOutro(sel) {
+    const outro = document.getElementById('outro-desc');
+    if (sel.value === 'outro' || sel.value === 'equipamento') {
+      outro.style.display = 'block';
+      outro.required = (sel.value === 'outro');
+    } else {
+      outro.style.display = 'none';
+      outro.required = false;
+      outro.value = '';
+    }
+  }
+
+  // Submit do formulário com Formspree
+  async function cadastrar(e) {
+    e.preventDefault();
+
+    const nome = document.getElementById('nome').value.trim();
+    const whats = document.getElementById('whats').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const interesse = document.getElementById('interesse').value;
+
+    if (!nome || !whats || !email || !interesse) return;
+
+    const btn = document.querySelector('.btn-principal');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://formspree.io/f/mzdqwvpr', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ 
+          nome, 
+          whatsapp: whats, 
+          email, 
+          interesse,
+          descricao: document.getElementById('outro-desc').value || ''
+        })
+      });
+
+      if (res.ok) {
+        document.getElementById('form-cadastro').style.display = 'none';
+        document.getElementById('msg-sucesso').classList.add('visivel');
+        base++;
+        document.getElementById('num-cadastros').textContent = base;
+      } else {
+        btn.textContent = 'Erro ao enviar — tente novamente';
+        btn.disabled = false;
+      }
+    } catch (err) {
+      btn.textContent = 'Erro de conexão — tente novamente';
+      btn.disabled = false;
+    }
+  }
+</script>
+</body>
+</html>
